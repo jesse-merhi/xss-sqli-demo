@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% autoescape false %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Secure Commenting Website</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Secure Commenting Website</h1>
+    </header>
+    <div class="comment-body">
+      <!-- Write form -->
+      <form action="/" method="POST">
+        <div class="input-box">
+          <input
+            type="text"
+            name="comment"
+            placeholder="Write your comment here..."
+            autocomplete="off"
+          />
+          <input type="submit" value="POST" />
+        </div>
+      </form>
+
+      {% if comments %}
+      <form method="GET">
+        <div class="input-box">
+          <input
+            type="text"
+            name="q"
+            placeholder="Input search query here... "
+            autocomplete="off"
+          />
+          <input type="submit" value="search" />
+        </div>
+      </form>
+      {% endif %} {% if not query and comments %}
+      <h3>Showing all comments:</h3>
+      {% elif query and comments %}
+      <h3>Showing comments containing "{{ query }}":</h3>
+
+      {% endif %} {% for comment in comments %} {% if query and query in comment
+      or not query%}
+      <div title="{{ comment }}" class="comment">
+        <p>{{ comment }}</p>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </body>
+</html>
+{% endautoescape %}

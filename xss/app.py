@@ -11,7 +11,7 @@ def index():
         db.add_comment(request.form['comment'])
 
     query = request.args.get('q')
-    return db.get_comments(query)
+    return render_template('index.jinja', comments=db.get_comments(query), query=query)
 
 
 if __name__ == '__main__':

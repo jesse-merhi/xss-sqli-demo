@@ -29,8 +29,12 @@ p {
 header {
     background: #1E2832 url("/static/title_background.jpg") fixed;
     color: rgba(255, 255, 255, 0.75);
-    padding: 2em 0 1em 0;
+    height: 10em;
     text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 header h1 {
@@ -45,11 +49,6 @@ header p {
     text-transform: uppercase;
 }
 
-div {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 20px;
-    padding: 10px;
-}
 
 form {
     margin: 0 0 2em 0;
@@ -96,4 +95,20 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: rgba(86, 241, 125, 0.47);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.comment-body {
+    padding-top:100px;
+    padding-left:200px;
+    padding-right: 200px;
+}
+.input-box {
+    display:flex;
+    
+}
+
+.comment {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px;
+    padding: 10px;
 }
