@@ -1,3 +1,4 @@
+# Our database isnt a database.
 db = []
 
 def add_comment(comment):
