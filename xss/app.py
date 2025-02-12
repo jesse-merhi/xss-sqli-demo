@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request, make_response
 import db
 
+app = Flask(__name__)
 
-# Create a new "Flask" object and assign it to app. 
-# (This object contains all the logic for our webserver to run)
-app = Flask(__name__) 
+# This function will run after every request.
+@app.after_request
+def set_cookie(response):
+    # Set a cookie named 'mycookie' with the value 'cookievalue'
+    response.set_cookie('superSecretCookies', 'THIS WILL LOG YOU IN')
+    return response
 
-
-# Add a new route to our webserver at `/` that accepts GET and POST requests.
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # If the request is a POST request then add a comment to the DB
@@ -19,3 +21,6 @@ def index():
 
     # Render the template using the query and the comment.
     return render_template('index.jinja', comments=db.get_comments(query), query=query)
+
+if __name__ == "__main__":
+    app.run(debug=True)

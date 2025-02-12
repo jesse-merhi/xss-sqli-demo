@@ -1,5 +1,7 @@
 ## Installation
+
 ### What is a Python venv?
+
 A venv or virtual environment is a system that allows you to seperate out what Python libraries are installed on your computer when accessing different directories/folders. In particular the `venv` system in Python allows you to create a "virtual environment" inside a directory and then install libraries ONLY within that folder.
 
 This means that if you have lots of Python projects on your computer, you can create different environments and install different libraries in each and every one of these projects. This avoids problems that may arise if you are using the same library in different projects but that are on different versions.
@@ -22,13 +24,13 @@ The second command will then activate the virtual environment by executing comma
 Now that the venv is setup you now need to install the required libraries or "dependencies" of the project using the following command,
 
 ```shell
+pip install pipenv --user
 pipenv install
 ```
 
 this will look at the file called `Pipfile` and install the dependencies defined in the file.
 
 Typically this installation is done once only as the virtual environment will store the dependencies in the environment itself.
-
 
 ### Running the application
 
@@ -104,9 +106,10 @@ For example if I gave the function `comments=[]` this would mean `{% if comments
 
 This effectively allows you to take normal static (non-changing) html and make it render differently based on data stored on the server. This is usually referred to as Server Side Rendering (SSR)!
 
-### Database - Its not really a database... 
+### Database - Its not really a database...
 
-So to tie all of this together, if you head on into the `db.py` file, you will notice our database... is just an array 
+So to tie all of this together, if you head on into the `db.py` file, you will notice our database... is just an array
+
 ```python
 db = []
 ```
